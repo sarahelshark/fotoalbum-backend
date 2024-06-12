@@ -19,11 +19,11 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body >
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo">
@@ -88,7 +88,14 @@
         <main class="">
             @yield('content')
         </main>
+
+        <footer class="bg-white text-center text-lg-start sticky-bottom mt-5 shadow-sm">
+            <div class="container p-3">
+                <p>&copy; {{ date('Y') }} Fotoalbum. Made with love &#9825;</p>
+            </div>
+       </footer>
     </div>
+    
 </body>
 
 </html>
