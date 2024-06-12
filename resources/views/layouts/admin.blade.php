@@ -25,18 +25,18 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center " href="{{ url('/') }}">
                     <div class="logo">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#d63384" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
                             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                             <circle cx="12" cy="13" r="4"></circle>
                           </svg>
                           
-                        <strong>Album</strong>
+                        <strong class="{{ Request::is('/') ? 'bg-primary rounded-4  p-2 text-center text-white' : '' }}">Album</strong>
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
-                <a class="navbar-brand d-flex" href="{{route('admin.photos.index')}}">Photos</a> 
+                <a class="navbar-brand d-flex {{ Request::is('admin/photos') ? 'bg-primary rounded-4  p-2 text-center text-white' : '' }}" href="{{route('admin.photos.index')}}">Photos</a> 
                 
                 
 
