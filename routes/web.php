@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,12 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])
 ->prefix('admin')
-->name('admin')
+->name('admin.')
 ->group(function(){
     
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard'); // /admin 
+
+    Route::resource('photos', PhotoController::class); //Projectcontroller gestisce le rotte lato admin
 });
 
 
