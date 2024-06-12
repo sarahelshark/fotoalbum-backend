@@ -32,7 +32,7 @@
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
-                <a class="navbar-brand d-flex" href="{{route('admin.photos.index')}}">Photos</a>
+                <a class="navbar-brand d-flex" href="{{route('admin.photos.index')}}">Photos</a> 
                 
                 
 
@@ -44,7 +44,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                           
                         </li>
                     </ul>
 
