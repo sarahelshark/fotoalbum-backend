@@ -21,6 +21,9 @@
   
     <div class="album py-5 bg-light">
       <div class="container">
+        <h2 class="fw-light mb-3 text-primary ">add new 
+          <i class="fa-solid fa-plus"></i>
+        </h2>
   
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           @forelse ($photos as $photo)
