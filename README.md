@@ -2,7 +2,7 @@
 L'area di amministrazione sarà riservata esclusivamente al fotografo e permetterà di gestire tutte le foto con le seguenti funzionalità:
 
 - Visualizzazione elenco di tutte le foto caricate <---fatto
-- Visualizzazione dei dettagli 
+- Visualizzazione dei dettagli  <--ok
 - Aggiunta di nuova foto <--view create 
 - Modifica foto esistente
 - Eliminazione foto esistente

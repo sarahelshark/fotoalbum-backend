@@ -47,12 +47,18 @@
                 <p class="card-text">{{$photo->description}}</p>
 
               </div>
-              <div class="card-footer bg-white py-3"> <div class="d-flex flex-column align-items-center">
-                <div class="btn-group ">
+              <div class="card-footer bg-white py-3"> <div class="d-flex flex-column align-items-center white-text">
+                <div class="btn-group white-text ">
            
-                    <button type="button" class="btn btn-sm btn-outline-primary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                  <button type="button" class="btn btn-sm btn-outline-primary white-text ">
+                    <a class="white-text" href="{{route('admin.photos.show' , $photo)}}" >View</a>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-outline-primary white-text">
+                    <a class="white-text" href="{{route('admin.photos.edit' , $photo)}}">Edit</a>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary white-text">
+                    <a class="text-secondary white-text" href="{{route('admin.photos.create')}}">Delete</a>
+                  </button>
                 </div>
                 
               </div>
