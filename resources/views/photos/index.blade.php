@@ -32,7 +32,14 @@
           @forelse ($photos as $photo)
           <div class="col" >
             <div class="card h-100 shadow-sm" id="{{$photo->id}}">
-              <img src="{{$photo->cover_image}}" class="card-img-top" width="100%" height="225" alt="{{$photo->name}}" loading="lazy" >  
+
+              @if (Str::startsWith($photo->cover_image , 'https://'))
+               <img loading="lazy"  class="card-img-top" width="100%" height="225" src="{{$photo->cover_image}}" alt="{{$photo->name}}" >
+              @else
+               <img loading="lazy" class="card-img-top" width="100%" height="225" src="{{asset('storage/' . $photo->cover_image)}}" alt="{{$photo->name}}" >
+                        
+              @endif
+              
               <div class="card-body">
                 <small class=" text-primary" > {{$photo->id}}</small>
                 <h4>{{$photo->name}}</h4>
