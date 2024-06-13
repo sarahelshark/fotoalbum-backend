@@ -6,6 +6,7 @@ use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Controllers\Controller;  //siccome siamo in una sottoclasse, ci serve la parent class
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -32,7 +33,14 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        $validated = $request->validated(); //validation
+        //image path after the modify of .env , filesystems.php, php artisan storage:link
+        $validated['cover_image'] = Storage::put('uploads', $request->cover_image);
+
+        
+        Photo::create($validated);
+        //redirect
+        return to_route('admin.photos.index')->with('message','Cool! Your new photo is now stored in the collection.');
     }
 
     /**
