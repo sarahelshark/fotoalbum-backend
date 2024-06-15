@@ -35,7 +35,7 @@
     <div class="album py-5 bg-light" id="album">
       <div class="container mt-4" >
         <h2 class="fw-light mb-3 text-primary ">
-          <a class="nav-link" href="{{route('admin.photos.create')}}">
+          <a class="text-primary text-decoration-none" href="{{route('admin.photos.create')}}">
             add new 
             <i class="fa-solid fa-plus"></i>
           </a>
