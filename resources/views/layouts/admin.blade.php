@@ -56,8 +56,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <li class="nav-item ">
+                            
+                            <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
@@ -95,7 +96,7 @@
 
         <footer class="bg-white text-center text-lg-start sticky-bottom mt-5 shadow-sm ">
             <div class="container p-3">
-                <p>&copy; {{ date('Y') }} Fotoalbum. Made with love <span class="text-primary" ></span> </p>
+                <p>&copy; {{ date('Y') }} Fotoalbum. Made with love <span class="text-primary" >&#9825;</span> </p>
             </div>
        </footer>
     </div>

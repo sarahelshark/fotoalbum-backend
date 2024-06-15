@@ -25,7 +25,13 @@
                 
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
           
+          @auth
           <a href="#custom-cards" class="btn btn-primary my-2">Let's get started!</a>
+          @endauth
+
+          @guest
+          <a href="{{ route('login') }}" class="btn btn-primary my-2">Let's get started!</a>
+          @endguest
          
         </div>
       </div>

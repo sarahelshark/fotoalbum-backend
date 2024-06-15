@@ -12,7 +12,11 @@ button>a{
 .navbar-toggler {
     color: $primary !important; 
   }
-  
+
+a.nav-link:hover{
+    color: $primary;
+    transform: scale(1.2);
+}
  
   
 

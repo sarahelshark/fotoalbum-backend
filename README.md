@@ -14,5 +14,4 @@ L'area di amministrazione sarà riservata esclusivamente al fotografo e permette
 
 categoria,  <----DA FARE
 
-
  “in evidenza”. <----ok 
