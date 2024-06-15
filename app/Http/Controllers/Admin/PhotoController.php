@@ -7,6 +7,7 @@ use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Controllers\Controller;  //siccome siamo in una sottoclasse, ci serve la parent class
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 
 class PhotoController extends Controller
@@ -41,7 +42,7 @@ class PhotoController extends Controller
         
         Photo::create($validated);
         //redirect
-        return to_route('admin.photos.index')->with('message','Your new photo is now stored in the collection.');
+        return to_route('admin.photos.index')->with('message','  Your new photo is now stored in the collection.');
     }
 
     /**
@@ -90,6 +91,10 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        if($photo->cover_image && !Str::startsWith($photo->cover_image,'https://')){
+            Storage::delete($photo->cover_image);
+           };
+           $photo->delete();
+           return to_route('admin.photo.index')->with('message','Photo deleted correctly.');
     }
 }

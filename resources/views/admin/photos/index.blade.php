@@ -11,6 +11,7 @@
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           @include('partials.session-message')
+
         <h1 class="fw-light text-primary" >Photos Management</h1>
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
           <p>
@@ -50,17 +51,16 @@
 
               </div>
               <div class="card-footer bg-white py-3"> <div class="d-flex flex-column align-items-center white-text">
-                <div class="btn-group white-text ">
+                <div class="btn-group ">
            
-                  <button type="button" class="btn btn-sm btn-outline-primary white-text ">
-                    <a class="white-text" href="{{route('admin.photos.show' , $photo)}}" >View</a>
-                  </button>
-                  <button type="button" class="btn btn-sm btn-outline-primary white-text">
-                    <a class="white-text" href="{{route('admin.photos.edit' , $photo)}}">Edit</a>
-                  </button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary white-text">
-                    <a class="text-secondary white-text" href="{{route('admin.photos.create')}}">Delete</a>
-                  </button>
+                  
+                    <a class="btn btn-sm btn-outline-primary white-text rounded-0" href="{{route('admin.photos.show' , $photo)}}" >View</a>
+                  
+                  
+                    <a class="btn btn-sm btn-outline-primary white-text" href="{{route('admin.photos.edit' , $photo)}}">Edit</a>
+                  
+
+                  @include('admin.photos.partials.delete-modal')
                 </div>
                 
               </div>
