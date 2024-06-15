@@ -12,6 +12,6 @@ L'area di amministrazione sarà riservata esclusivamente al fotografo e permette
 
 ! Una foto contiene almeno le seguenti informazioni: titolo, descrizione, upload immagine, <--ok
 
-categoria,  <----DA FARE
+categoria,  <----ok
 
  “in evidenza”. <----ok 
