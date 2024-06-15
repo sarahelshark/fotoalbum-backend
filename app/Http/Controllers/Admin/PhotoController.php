@@ -41,7 +41,7 @@ class PhotoController extends Controller
         
         Photo::create($validated);
         //redirect
-        return to_route('admin.photos.index')->with('message','Cool! Your new photo is now stored in the collection.');
+        return to_route('admin.photos.index')->with('message','Your new photo is now stored in the collection.');
     }
 
     /**
@@ -82,7 +82,7 @@ class PhotoController extends Controller
        $photo->update($validated);
 
        //redirect
-       return to_route('admin.photos.index')->with('message','Cool! Your photo is now updatedm, enjoy your collection.');
+       return to_route('admin.photos.index')->with('message','Your photo is now updated, enjoy your collection.');
     }
 
     /**
