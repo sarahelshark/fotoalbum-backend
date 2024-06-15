@@ -29,7 +29,7 @@
             <div class="links">
                 
                <a class="btn btn-primary" role="button" href="{{route('admin.photos.index')}}">
-                Go Back
+                See Your collection!
                </a>
             </div>
         </div>

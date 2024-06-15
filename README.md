@@ -4,10 +4,15 @@ L'area di amministrazione sarà riservata esclusivamente al fotografo e permette
 - Visualizzazione elenco di tutte le foto caricate <---fatto
 - Visualizzazione dei dettagli  <--ok
 - Aggiunta di nuova foto <--view create 
-- Modifica foto esistente
-- Eliminazione foto esistente
+- Modifica foto esistente  <--ok
+- Eliminazione foto esistente<--ok
 
-! Queste operazioni possono essere svolte SOLO dall’utente Admin che ha accesso alla dashboard.
+! Queste operazioni possono essere svolte SOLO dall’utente Admin che ha accesso alla dashboard.<--ok
 
 
-! Una foto contiene almeno le seguenti informazioni: titolo, descrizione, upload immagine, categoria, “in evidenza”.
+! Una foto contiene almeno le seguenti informazioni: titolo, descrizione, upload immagine, <--ok
+
+categoria,  <----DA FARE
+
+
+ “in evidenza”. <----ok 

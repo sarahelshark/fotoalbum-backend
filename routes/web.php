@@ -3,6 +3,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',  function () {
+    return view('welcome', ['photos' => Photo::orderByDesc('id')->take(3)->get()]);
 });
+
+
 
 Route::middleware(['auth', 'verified'])
 ->prefix('admin')

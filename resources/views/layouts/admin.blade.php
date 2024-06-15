@@ -89,13 +89,13 @@
             </div>
         </nav>
 
-        <main class="">
+        <main >
             @yield('content')
         </main>
 
         <footer class="bg-white text-center text-lg-start sticky-bottom mt-5 shadow-sm ">
             <div class="container p-3">
-                <p>&copy; {{ date('Y') }} Fotoalbum. Made with love <span class="text-primary" >&#9825;</span> </p>
+                <p>&copy; {{ date('Y') }} Fotoalbum. Made with love <span class="text-primary" ></span> </p>
             </div>
        </footer>
     </div>
