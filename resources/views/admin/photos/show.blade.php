@@ -4,7 +4,7 @@
 
 <header class="py-3">
     <div class="container d-flex align-items-center justify-content-center">
-        <h1>Your Ph&#9825;to</h1>
+        <h1>Your Photo</h1>
     </div>
 </header>
 

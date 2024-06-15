@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 
-
-    <section class="p-5 text-center container my-5">
-      <div class="row py-lg-5">
+<main>
+  <section class="p-5 text-center container my-5">
+      <div class="row py-lg-5 ">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <div class="container-fluid">
+          <div class="container-fluid my-5">
               <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
                   <defs>
                       <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
@@ -24,9 +24,9 @@
       @endauth  
                 
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-          <p>
-            <a href="#custom-cards" class="btn btn-primary my-2">Let's get started!</a>
-          </p>
+          
+          <a href="#custom-cards" class="btn btn-primary my-2">Let's get started!</a>
+         
         </div>
       </div>
   </section>
@@ -66,7 +66,9 @@
 
     
     
-    @endauth     
+    @endauth   
+</main>
+      
     
 
 @endsection
