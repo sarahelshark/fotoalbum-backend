@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Controllers\Controller;  //siccome siamo in una sottoclasse, ci serve la parent class
 use Illuminate\Support\Facades\Storage;
 
+
 class PhotoController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class PhotoController extends Controller
     public function index()
     {
         //dd(Photo::all());
-        return view('photos.index', ['photos' => Photo::orderByDesc('id')->paginate(6)]);
+        return view('admin.photos.index', ['photos' => Photo::orderByDesc('id')->paginate(6)]);
         
     }
 
@@ -25,7 +26,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('photos.create');
+        return view('admin.photos.create');
     }
 
     /**
@@ -48,7 +49,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('admin.photos.show', compact('photo'));
     }
 
     /**
@@ -56,7 +57,7 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        //
+        return view('admin.photos.edit', compact('photo'));
     }
 
     /**
@@ -64,7 +65,24 @@ class PhotoController extends Controller
      */
     public function update(UpdatePhotoRequest $request, Photo $photo)
     {
-        //
+       //dd($request->all());
+       //validated inputs
+       $validated = $request->validated();
+
+       //update image 
+       if($request->has('cover_image')){
+        if($photo->cover_image){
+            Storage::delete($photo->cover_image);
+        }
+        $image_path = Storage::put('uploads', $request->cover_image);
+        $validated['cover_image'] = $image_path;
+       };
+
+       //update model & save new version
+       $photo->update($validated);
+
+       //redirect
+       return to_route('admin.photos.index')->with('message','Cool! Your photo is now updatedm, enjoy your collection.');
     }
 
     /**
