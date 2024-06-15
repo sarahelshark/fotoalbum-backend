@@ -95,6 +95,6 @@ class PhotoController extends Controller
             Storage::delete($photo->cover_image);
            };
            $photo->delete();
-           return to_route('admin.photo.index')->with('message','Photo deleted correctly.');
+           return to_route('admin.photos.index')->with('message','Photo deleted correctly.');
     }
 }
