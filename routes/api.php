@@ -27,13 +27,17 @@ Route::get('photos', function(){
         //'results' => Photo::orderByDesc('id')->get(),  cosi prendo tutto
         //result restituira la mia array di oggettidella collection
     
-        'results' => Photo::with(['category','user'])->orderByDesc('id')->paginate(3),
+        'results' => Photo::with(['category','user'])->orderByDesc('id')->paginate(),
     
         //nel with ci metto i nomi dei metodi dei modelli che sto usando per recuperare tutto cio che mi serve
     ]);
 }); 
 
-Route::get('photos/{photo}', function ($id){
+Route::get('photos/{photo}', function (Photo $photo){
+   // return $id;
+
+   return Photo::with(['category', 'user'])->find($photo->id);
+   
 
 });
 
