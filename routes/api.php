@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Photo;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//restituisce array di oggetti -> OPZIONE 1 
+/*Route::get('photos', function(){
+    return Photo::all();
+});*/
+
+//restituisce chiave:valore , + versatile _> OPZIONE 2 
+Route::get('photos', function(){
+    return response()->json([
+        'test' =>'success',
+        //cosa voglio restituire in json ? personalizzo la risposta
+        //'results' => Photo::orderByDesc('id')->get(),  cosi prendo tutto
+        //result restituira la mia array di oggettidella collection
+
+        'results' => Photo::orderByDesc('id')->paginate(3),
+    ]);
 });
