@@ -28,8 +28,9 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();  
-        return view('admin.photos.create', compact('categories'));
+      $categories = Category::all();  
+      return view('admin.photos.create', compact('categories'));
+       
     } 
 
     /**
