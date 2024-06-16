@@ -14,7 +14,7 @@ class Category extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Photos(): HasMany
+    public function photos(): HasMany
     {
         return $this->hasMany(Photo::class);
     }

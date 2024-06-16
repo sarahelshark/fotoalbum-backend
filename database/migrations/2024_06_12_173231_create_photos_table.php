@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->string('name', 200);
+            $table->unsignedBigInteger('user_id'); // 
             $table->text('description')->nullable();
             $table->string('cover_image');
             $table->timestamps();
+
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

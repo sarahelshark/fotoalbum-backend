@@ -10,7 +10,18 @@ class Photo extends Model
 {
     use HasFactory;
     
-    protected $fillable=['name','cover_image','description','category_id'];
+    protected $fillable=['name','cover_image','description','user_id','category_id'];
+    /**
+     * Get the user that owns the Photo.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    
     /**
      * Get the user that owns the Photo
      *
