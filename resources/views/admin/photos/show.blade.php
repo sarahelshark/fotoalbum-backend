@@ -24,7 +24,7 @@
             </h3>
 
             <div>
-                <strong class="text-muted">Category:</strong>{{$photo->category?->name}}
+                <strong class="text-primary">Category:</strong> {!! $photo->category ? $photo->category->name : '<small class="text-muted">uncategorized</small>' !!}
                 
             </div>
             
