@@ -10,10 +10,15 @@
              '{{ $photo->cover_image }}'
          @else
              '{{ asset('storage/' . $photo->cover_image) }}'
-         @endif);">
+         @endif); ">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-3">
-                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{$photo->name}}</h3>
+                  <span class="text-primary" >&#9825; preview</span>
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-primary">{{$photo->name}}</h3>
                   
+                </div>
+                <div>
+                    {!! $photo->category ? $photo->category->name : '<small class="btn btn-primary mb-4">uncategorized</small>' !!}
+                    
                 </div>
               </div>
         </div>
@@ -50,6 +55,24 @@
             @error('name')
              <div class="text-danger">{{$message}}</div>
             @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="category_id" class="form-label text-primary">Category</label>
+            <select
+                class="form-select "
+                name="category_id"
+                id="category_id"
+            >
+                <option selected disabled >Select one</option>
+                
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                        {{ old('type_id',$photo->category_id) == $category->id ? 'selected' : '' }}>
+                        {{$category->name}}
+                    </option>
+                @endforeach
+            </select>
         </div>
 
         <div class="mb-3">
