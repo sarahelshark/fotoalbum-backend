@@ -41,18 +41,3 @@ span.text-primary.highlight{
 }
 
 
-
-
-::-webkit-scrollbar {
-    width: 4px;
-    }
-    /* Track */
-    ::-webkit-scrollbar-track {
-    background: none; 
-    }
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-    background: $primary; 
-    }
-    
-    /*end of custom scrollbar*/
