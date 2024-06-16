@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0" style="background-image: url(@if (Str::startsWith($photo->cover_image, 'https://')) '{{ $photo->cover_image }}' @else '{{ asset('storage/' . $photo->cover_image) }}' @endif);">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-3 content">
-                    <span class="text-primary">&#9825; preview</span>
+                    <span class="text-primary highlight">&#9825; preview</span>
                     <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-primary">{{$photo->name}}</h3>
                 </div>
                 <div class="mx-auto btn btn-primary mb-4">

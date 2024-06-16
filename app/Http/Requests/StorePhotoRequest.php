@@ -23,7 +23,7 @@ class StorePhotoRequest extends FormRequest
     {
         return [
             'name'=> ' required|string|max:100',
-            'category_id'=>'required|exists:categories,id',
+            'category_id'=>'nullable|exists:categories,id',
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1000',
             'description' =>'nullable|string|max:1000'
         ];
