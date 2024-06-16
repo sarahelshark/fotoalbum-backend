@@ -45,27 +45,28 @@
   
       <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
         @forelse ($photos as $photo)
-        <div class="col-lg-4 col-md-8 mx-auto">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" 
-                 style="background-image: url(
-                     @if (Str::startsWith($photo->cover_image, 'https://'))
-                         '{{ $photo->cover_image }}'
-                     @else
-                         '{{ asset('storage/' . $photo->cover_image) }}'
-                     @endif
-                 );">
-                <div class="d-flex flex-column justify-content-between h-100 p-5 text-white text-shadow-3">
-                    <h4 class="mt-5 mb-2 display-6 lh-1 fw-bold">
-                        <span class="text-primary text-shadow px-1">&#9825;</span>
-                        {{ $photo->name }}
-                    </h4>
-                    <a class="btn btn-sm btn-primary mt-auto align-self-start" href="{{ route('admin.photos.show', $photo) }}">View</a>
-                </div>
+    <div class="col-lg-4 col-md-8 mx-auto">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0" 
+             style="background-image: url(
+                 @if (Str::startsWith($photo->cover_image, 'https://'))
+                     '{{ $photo->cover_image }}'
+                 @else
+                     '{{ asset('storage/' . $photo->cover_image) }}'
+                 @endif
+             );">
+            <div class="d-flex flex-column justify-content-between h-100 p-5 text-white text-shadow-3 content">
+                <h4 class="mt-5 mb-2 display-6 lh-1 fw-bold">
+                    <span class="text-primary text-shadow px-1">&#9825;</span>
+                    {{ $photo->name }}
+                </h4>
+                <a class="btn btn-sm btn-primary mt-auto align-self-start" href="{{ route('admin.photos.show', $photo) }}">View</a>
             </div>
         </div>
-        @empty
-            <p>No photos available</p>
-        @endforelse
+    </div>
+@empty
+    <p>No photos available</p>
+@endforelse
+
     </div>
     
     </section>
