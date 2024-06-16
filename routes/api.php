@@ -21,33 +21,19 @@ use App\Models\Photo;
 
 //restituisce chiave:valore , + versatile _> OPZIONE 2 
 Route::get('photos', function(){
-    try {
-        $photos = Photo::with(['category', 'user'])->orderByDesc('id')->paginate(3);
-        
-        return response()->json([
-            'test' => 'success',
-            'results' => $photos,
-        ]);
-    } catch (\Exception $e) {
-        // Handle the error
-        return response()->json([
-            'test' => 'error',
-            'message' => $e->getMessage(),
-        ], 500);
-    }
+    return response()->json([
+        'test' =>'success',
+        //cosa voglio restituire in json ? personalizzo la risposta
+        //'results' => Photo::orderByDesc('id')->get(),  cosi prendo tutto
+        //result restituira la mia array di oggettidella collection
+    
+        'results' => Photo::with(['category','user'])->orderByDesc('id')->paginate(3),
+    
+        //nel with ci metto i nomi dei metodi dei modelli che sto usando per recuperare tutto cio che mi serve
+    ]);
 }); 
 
 Route::get('photos/{photo}', function ($id){
 
 });
 
-return response()->json([
-    'test' =>'success',
-    //cosa voglio restituire in json ? personalizzo la risposta
-    //'results' => Photo::orderByDesc('id')->get(),  cosi prendo tutto
-    //result restituira la mia array di oggettidella collection
-
-    'results' => Photo::with(['category','user'])->orderByDesc('id')->paginate(3),
-
-    //nel with ci metto i nomi dei metodi dei modelli che sto usando per recuperare tutto cio che mi serve
-]);
