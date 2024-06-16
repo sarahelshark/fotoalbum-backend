@@ -3,7 +3,7 @@
 @section('content')
 
 <header class="py-3">
-    <div class="container d-flex align-items-center justify-content-center">
+    <div class="container d-flex align-items-center justify-content-center text-primary">
         <h1>Your Photo</h1>
     </div>
 </header>
@@ -19,9 +19,14 @@
            @endif
         </div>
         <div class="col">
-            <h3 class="text-muted">
+            <h3 class="text-primary">
                 {{$photo->name}}
             </h3>
+
+            <div>
+                <strong class="text-muted">Category:</strong>{{$photo->category?->name}}
+                
+            </div>
             
             <p>
                 {{$photo->description}}

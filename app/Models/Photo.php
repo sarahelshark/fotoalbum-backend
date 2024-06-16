@@ -10,13 +10,13 @@ class Photo extends Model
 {
     use HasFactory;
     
-    protected $fillable=['name','cover_image','description'];
+    protected $fillable=['name','cover_image','description','category_id'];
     /**
      * Get the user that owns the Photo
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

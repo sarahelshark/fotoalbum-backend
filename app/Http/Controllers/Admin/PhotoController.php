@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePhotoRequest;
 use App\Http\Controllers\Controller;  //siccome siamo in una sottoclasse, ci serve la parent class
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Models\Category;
 
 
 class PhotoController extends Controller
@@ -27,8 +28,9 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('admin.photos.create');
-    }
+        $categories = Category::all();  
+        return view('admin.photos.create', compact('categories'));
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -38,6 +40,8 @@ class PhotoController extends Controller
         $validated = $request->validated(); //validation
         //image path after the modify of .env , filesystems.php, php artisan storage:link
         $validated['cover_image'] = Storage::put('uploads', $request->cover_image);
+
+        //dd($validated);
 
         
         Photo::create($validated);
