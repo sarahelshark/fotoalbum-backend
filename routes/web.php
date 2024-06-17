@@ -1,9 +1,7 @@
 <?php
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PhotoController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,24 +14,13 @@ use App\Models\Photo;
 |
 */
 
-Route::get('/',  function () {
-    return view('welcome', ['photos' => Photo::orderByDesc('id')->take(3)->get()]);
+Route::get('/', function () {
+    return view('welcome');
 });
 
-
-
-Route::middleware(['auth', 'verified'])
-->prefix('admin')
-->name('admin.')
-->group(function(){
-    
-    Route::get('/',[DashboardController::class, 'index'])->name('dashboard'); // /admin 
-
-    Route::resource('photos', PhotoController::class); //Projectcontroller gestisce le rotte lato admin
-});
-
-
-
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

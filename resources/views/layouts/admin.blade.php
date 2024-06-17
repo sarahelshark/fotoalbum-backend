@@ -36,7 +36,7 @@
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
-                <a class="navbar-brand d-flex {{ Request::is('admin/photos') ? 'bg-primary rounded-4  p-2 text-center text-white' : '' }}" href="{{route('admin.photos.index')}}">Photos</a> 
+                <a class="navbar-brand d-flex {{ Request::is('admin/photos') ? 'bg-primary rounded-4  p-2 text-center text-white' : '' }}" href="/">Photos</a> 
                 
                 
 
