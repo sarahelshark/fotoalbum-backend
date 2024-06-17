@@ -52,7 +52,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        return view('admin.photos.show', compact('photo'));
+        return view('admin.photos.show', compact('photos'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PhotoController extends Controller
     public function edit(Photo $photo)
     {
         $categories = Category::all();  
-        return view('admin.photos.edit',compact('photo', 'categories'));
+        return view('admin.photos.edit',compact('photos', 'categories'));
     }
 
     /**
