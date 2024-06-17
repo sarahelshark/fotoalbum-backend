@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
+use App\Http\Controllers\Controller;  //siccome siamo in una sottoclasse, ci serve la parent class
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PhotoController extends Controller
 {
@@ -13,7 +16,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        //dd(Photo::all());
+        return view('admin.photos.index', ['photos' => Photo::orderByDesc('id')->paginate(6)]);
     }
 
     /**
