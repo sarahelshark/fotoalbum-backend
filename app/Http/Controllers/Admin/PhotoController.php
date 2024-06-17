@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
@@ -25,7 +26,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('admin.photos.create');
+        $categories = Category::all();  
+        return view('admin.photos.create', compact('categories'));
     }
 
     /**
@@ -58,7 +60,8 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        return view('admin.photos.edit', compact('photo'));
+        $categories = Category::all();  
+        return view('admin.photos.edit',compact('photo', 'categories'));
     }
 
     /**
