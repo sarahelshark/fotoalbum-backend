@@ -33,7 +33,16 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        $validated = $request->validated(); //validation
+        //image path after the modify of .env , filesystems.php, php artisan storage:link
+        $validated['cover_image'] = Storage::put('uploads', $request->cover_image);
+
+        //dd($validated);
+
+        
+        Photo::create($validated);
+        //redirect
+        return to_route('admin.photos.index')->with('message','  Your new photo is now stored in the collection.');
     }
 
     /**
@@ -57,7 +66,24 @@ class PhotoController extends Controller
      */
     public function update(UpdatePhotoRequest $request, Photo $photo)
     {
-        //
+        //dd($request->all());
+       //validated inputs
+       $validated = $request->validated();
+
+       //update image 
+       if($request->has('cover_image')){
+        if($photo->cover_image){
+            Storage::delete($photo->cover_image);
+        }
+        $image_path = Storage::put('uploads', $request->cover_image);
+        $validated['cover_image'] = $image_path;
+       };
+
+       //update model & save new version
+       $photo->update($validated);
+
+       //redirect
+       return to_route('admin.photos.index')->with('message','Your photo is now updated, enjoy your collection.');
     }
 
     /**
@@ -65,6 +91,10 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        if($photo->cover_image && !Str::startsWith($photo->cover_image,'https://')){
+            Storage::delete($photo->cover_image);
+           };
+           $photo->delete();
+           return to_route('admin.photos.index')->with('message','Photo deleted correctly.');
     }
 }
