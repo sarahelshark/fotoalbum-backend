@@ -32,3 +32,6 @@ destination->
         ]);
     }
 });
+
+Check Laravel logs for any errors
+tail -f storage/logs/laravel.log
