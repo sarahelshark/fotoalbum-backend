@@ -17,4 +17,19 @@ class PhotoController extends Controller
             
         ]);
     }
+    public function show($id){
+            $photo = Photo::with(['category'])->where('id', $id)->first(); 
+            //first() se non mi da la foto, allora mi dara null
+            //spiegone sul readme
+            if($photo){
+                return $photo;
+            }else{
+                return response()->json([
+                    'success' => false,
+                    'results'=> 'error 404 not found'
+        
+                ]);
+            }
+        
+    }
 }

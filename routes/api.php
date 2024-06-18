@@ -46,4 +46,6 @@ Route::get('photos', function(){
 
  */
 
- Route::get('photos', [PhotoController::class , 'index']); 
+Route::get('photos', [PhotoController::class , 'index']); 
+
+Route::get('photos/{photo}',[PhotoController::class , 'show']);

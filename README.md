@@ -18,3 +18,17 @@ destination->
         
         
     }
+
+    Route::get('photos/{photo}', function($id){
+    $photo = Photo::with(['category','user'])->where('id', $id)->first(); 
+    //user:null> I need to define the relationship between Photo & User if I want to have diff users in my platform, so the eager loading is relevant, in quel caso User> hasMany (Photo::class) e Photo BelongsTo(User::class) one 2 many relationship
+    if($photo){
+        return $photo;
+    }else{
+        return response()->json([
+            'success' => false,
+            'results'=> 'error 404 not found'
+
+        ]);
+    }
+});
